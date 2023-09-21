@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+
+    <style>
+        .main {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 mt-5">
+            <h3 class="text-center">Please Sign In</h3>
+            <hr>
+        </div>
+
+        <div class="main col-md-6 mt-3">
+            <div class="card">
+                <div class="card-body">
+                    <form id="signInForm" th:action="@{/login}" method="POST">
+
+                        <div th:if="${showError != null}" class="text-danger">
+                            <p th:text="${showError}"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" id="email" class="form-control" name="email" placeholder="E-mail">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" id="password" class="form-control" name="password" placeholder="Password">
+                        </div>
+
+                        <div class="input-container">
+                            <button type="submit" class="btn btn-success w-100">Log in</button>
+                        </div>
+
+                        <hr>
+                        <a href="/register">Click here to Register</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
